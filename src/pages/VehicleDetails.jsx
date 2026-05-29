@@ -38,8 +38,8 @@ export default function VehicleDetails() {
       />
 
       <p>Price: ${vehicle.price}</p>
-      <p>Mileage: ${vehicle.mileage}</p>
-      <p>Statis: ${vehicle.status}</p>
+      <p>Mileage: {vehicle.mileage}</p>
+      <p>Status: {vehicle.status}</p>
       <p>{vehicle.description}</p>
     </section>
   );
