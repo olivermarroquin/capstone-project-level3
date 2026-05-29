@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import VehicleList from "../components/VehicleList";
 import VehicleService from "../services/VehicleService";
+import VehicleForm from "../components/VehicleForm";
 
 export default function Admin() {
   const [vehicles, setVehicles] = useState([]);
@@ -25,6 +26,8 @@ export default function Admin() {
   return (
     <section>
       <h2>Dealer Dashboard</h2>
+
+      <VehicleForm onVehicleAdded={getVehicles} />
 
       <h3>Manage Inventory</h3>
 
