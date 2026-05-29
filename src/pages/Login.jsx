@@ -1,9 +1,11 @@
 import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { supabase } from "../supabase";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const navigate = useNavigate();
 
   async function handleSignIn(e) {
     e.preventDefault();
@@ -17,7 +19,10 @@ export default function Login() {
 
     if (error) {
       alert(error.message);
+      return;
     }
+
+    // navigate("/admin");
   }
 
   return (

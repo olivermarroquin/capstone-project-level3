@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [session, setSession] = useState(null);
@@ -34,6 +35,7 @@ function App() {
   }, []);
 
   console.log("Session:", session);
+  console.log("App session:", session);
 
   return (
     <>
@@ -44,8 +46,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/vehicles/:id" element={<VehicleDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/login"
+            element={session ? <Navigate to="/admin" /> : <Login />}
+          />
+          s
+          <Route
+            path="/admin"
+            element={session ? <Admin /> : <Navigate to="/login" />}
+          />
         </Routes>
       </main>
     </>
