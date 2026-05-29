@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import VehicleForm from "../components/VehicleForm";
 import VehicleList from "../components/VehicleList";
 import VehicleService from "../services/VehicleService";
+import InquiryList from "../components/InquiryList";
+import InquiryService from "../services/InquiryService";
 
 export default function Admin() {
   const [vehicles, setVehicles] = useState([]);
+  const [inquiries, setInquiries] = useState([]);
 
   async function getVehicles() {
     const { data, error } = await VehicleService.getVehicles();
@@ -17,6 +20,19 @@ export default function Admin() {
     }
 
     setVehicles(data);
+  }
+
+  async function getInquiries() {
+    const { data, error } = await InquiryService.getInquiries();
+
+    console.log("Customer inquiries:", data);
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    setInquiries(data);
   }
 
   async function handleDelete(id) {
@@ -47,6 +63,7 @@ export default function Admin() {
 
   useEffect(() => {
     getVehicles();
+    getInquiries();
   }, []);
 
   return (
@@ -63,6 +80,7 @@ export default function Admin() {
         onDelete={handleDelete}
         onToggleStatus={handleToggleStatus}
       />
+      <InquiryList inquiries={inquiries} />
     </section>
   );
 }
