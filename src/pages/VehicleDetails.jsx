@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VehicleService from "../services/VehicleService";
+import InquiryForm from "../components/InquiryForm";
 
 export default function VehicleDetails() {
   const { id } = useParams();
@@ -41,6 +42,7 @@ export default function VehicleDetails() {
       <p>Mileage: {vehicle.mileage}</p>
       <p>Status: {vehicle.status}</p>
       <p>{vehicle.description}</p>
+      <InquiryForm vehicleId={vehicle.id} />
     </section>
   );
 }
