@@ -31,9 +31,11 @@ export default function Vehicles() {
     <div>
       <h2>Vehicle Inventory</h2>
 
-      <button onClick={() => setFilter("All")}>All</button>
-      <button onClick={() => setFilter("Available")}>Available</button>
-      <button onClick={() => setFilter("Sold")}>Sold</button>
+      <div className="filter-buttons">
+        <button onClick={() => setFilter("All")}>All</button>
+        <button onClick={() => setFilter("Available")}>Available</button>
+        <button onClick={() => setFilter("Sold")}>Sold</button>
+      </div>
 
       <VehicleList vehicles={filteredVehicles} isAdmin={false} />
     </div>

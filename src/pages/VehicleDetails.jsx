@@ -27,22 +27,35 @@ export default function VehicleDetails() {
   }
 
   return (
-    <section>
-      <h2>
-        {vehicle.year} {vehicle.make} {vehicle.model}
-      </h2>
+    <>
+      <section className="details">
+        <div>
+          <img
+            src={vehicle.image_url}
+            alt={`${vehicle.year} ${vehicle.make}`}
+          />
+        </div>
 
-      <img
-        src={vehicle.image_url}
-        alt={`${vehicle.year} ${vehicle.make}`}
-        width="400"
-      />
+        <div>
+          <h2>
+            {vehicle.year} {vehicle.make} {vehicle.model}
+          </h2>
 
-      <p>Price: ${vehicle.price}</p>
-      <p>Mileage: {vehicle.mileage}</p>
-      <p>Status: {vehicle.status}</p>
-      <p>{vehicle.description}</p>
+          <p>
+            <strong>Price:</strong> ${vehicle.price}
+          </p>
+          <p>
+            <strong>Mileage:</strong> {vehicle.mileage}
+          </p>
+          <p>
+            <strong>Status:</strong> {vehicle.status}
+          </p>
+
+          <p>{vehicle.description}</p>
+        </div>
+      </section>
+
       <InquiryForm vehicleId={vehicle.id} />
-    </section>
+    </>
   );
 }
