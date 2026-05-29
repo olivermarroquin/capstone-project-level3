@@ -35,7 +35,7 @@ export default function Vehicles() {
       <button onClick={() => setFilter("Available")}>Available</button>
       <button onClick={() => setFilter("Sold")}>Sold</button>
 
-      <VehicleList vehicles={filteredVehicles} />
+      <VehicleList vehicles={filteredVehicles} isAdmin={false} />
     </div>
   );
 }

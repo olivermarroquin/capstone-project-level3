@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import VehicleForm from "../components/VehicleForm";
 import VehicleList from "../components/VehicleList";
 import VehicleService from "../services/VehicleService";
-import VehicleForm from "../components/VehicleForm";
 
 export default function Admin() {
   const [vehicles, setVehicles] = useState([]);
@@ -19,6 +19,32 @@ export default function Admin() {
     setVehicles(data);
   }
 
+  async function handleDelete(id) {
+    const { error } = await VehicleService.deleteVehicle(id);
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    getVehicles();
+  }
+
+  async function handleToggleStatus(id, currentStatus) {
+    const newStatus = currentStatus === "Available" ? "Sold" : "Available";
+
+    const { error } = await VehicleService.updateVehicle(id, {
+      status: newStatus,
+    });
+
+    if (error) {
+      alert(error.message);
+      return;
+    }
+
+    getVehicles();
+  }
+
   useEffect(() => {
     getVehicles();
   }, []);
@@ -31,7 +57,12 @@ export default function Admin() {
 
       <h3>Manage Inventory</h3>
 
-      <VehicleList vehicles={vehicles} />
+      <VehicleList
+        vehicles={vehicles}
+        isAdmin={true}
+        onDelete={handleDelete}
+        onToggleStatus={handleToggleStatus}
+      />
     </section>
   );
 }

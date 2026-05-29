@@ -1,6 +1,11 @@
 import VehicleCard from "./VehicleCard";
 
-export default function VehicleList({ vehicles }) {
+export default function VehicleList({
+  vehicles,
+  isAdmin,
+  onDelete,
+  onToggleStatus,
+}) {
   return (
     <div>
       {vehicles.map((vehicle) => (
@@ -15,6 +20,9 @@ export default function VehicleList({ vehicles }) {
           status={vehicle.status}
           description={vehicle.description}
           image_url={vehicle.image_url}
+          isAdmin={isAdmin}
+          onDelete={onDelete}
+          onToggleStatus={onToggleStatus}
         />
       ))}
     </div>
