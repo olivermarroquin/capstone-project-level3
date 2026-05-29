@@ -39,8 +39,7 @@ function App() {
 
   return (
     <>
-      <Header />
-
+      <Header session={session} />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
