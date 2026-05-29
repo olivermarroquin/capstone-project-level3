@@ -1,10 +1,34 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import VehicleList from "../components/VehicleList";
+import VehicleService from "../services/VehicleService";
 
 export default function Admin() {
-  console.log("Admin page loaded");
+  const [vehicles, setVehicles] = useState([]);
+
+  async function getVehicles() {
+    const { data, error } = await VehicleService.getVehicles();
+
+    console.log("Admin vehicles:", data);
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    setVehicles(data);
+  }
+
+  useEffect(() => {
+    getVehicles();
+  }, []);
+
   return (
-    <div>
-      <h2>Dealer Admin Page</h2>
-    </div>
+    <section>
+      <h2>Dealer Dashboard</h2>
+
+      <h3>Manage Inventory</h3>
+
+      <VehicleList vehicles={vehicles} />
+    </section>
   );
 }

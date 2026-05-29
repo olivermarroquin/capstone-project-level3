@@ -7,7 +7,7 @@ export default function Vehicles() {
   const [filter, setFilter] = useState("All");
 
   async function getVehicles() {
-    const { data, error } = await VehicleService.getVehicle();
+    const { data, error } = await VehicleService.getVehicles();
 
     console.log("Vehicles:", data);
 
@@ -25,7 +25,7 @@ export default function Vehicles() {
   const filteredVehicles =
     filter === "All"
       ? vehicles
-      : vehicles.filter((vehicles) => vehicles.status === filter);
+      : vehicles.filter((vehicle) => vehicle.status === filter);
 
   return (
     <div>

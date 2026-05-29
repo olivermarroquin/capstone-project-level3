@@ -1,7 +1,7 @@
 import { supabase } from "../supabase";
 
 class VehicleService {
-  async getVehicle() {
+  async getVehicles() {
     return await supabase
       .from("vehicles")
       .select("*")
