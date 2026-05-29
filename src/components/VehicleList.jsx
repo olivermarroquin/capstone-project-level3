@@ -1,9 +1,8 @@
-import React from "react";
 import VehicleCard from "./VehicleCard";
 
 export default function VehicleList({ vehicles }) {
   return (
-    <>
+    <div>
       {vehicles.map((vehicle) => (
         <VehicleCard
           key={vehicle.id}
@@ -12,9 +11,12 @@ export default function VehicleList({ vehicles }) {
           model={vehicle.model}
           year={vehicle.year}
           price={vehicle.price}
+          mileage={vehicle.mileage}
           status={vehicle.status}
+          description={vehicle.description}
+          image_url={vehicle.image_url}
         />
       ))}
-    </>
+    </div>
   );
 }
