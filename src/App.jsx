@@ -7,8 +7,34 @@ import Vehicles from "./pages/Vehicles";
 import VehicleDetails from "./pages/VehicleDetails";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import { useEffect, useState } from "react";
+import { supabase } from "./supabase";
 
 function App() {
+  const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    async function getSession() {
+      const { data } = await supabase.auth.getSession();
+      setSession(data.session);
+    }
+
+    getSession();
+
+    const { data } = supabase.auth.onAuthStateChange(
+      (event, currentSession) => {
+        console.log(event);
+        setSession(currentSession);
+      },
+    );
+
+    return () => {
+      data.subscription.unsubscribe();
+    };
+  }, []);
+
+  console.log("Session:", session);
+
   return (
     <>
       <Header />
