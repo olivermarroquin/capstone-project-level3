@@ -45,7 +45,7 @@ export default function VehicleForm({ onVehicleAdded }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <h3>Add Vehicle</h3>
 
       <input

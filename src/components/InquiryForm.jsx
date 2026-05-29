@@ -36,7 +36,7 @@ export default function InquiryForm({ vehicleId }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <h2>Ask About This Vehicle</h2>
       <input
         value={customerName}

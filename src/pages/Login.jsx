@@ -28,7 +28,7 @@ export default function Login() {
   return (
     <section>
       <h2>Dealer Login</h2>
-      <form onSubmit={handleSignIn}>
+      <form className="form" onSubmit={handleSignIn}>
         <input
           type="email"
           placeholder="Email"

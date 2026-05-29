@@ -1,0 +1,36 @@
+.page {
+  padding: 2rem;
+}
+
+.home {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.home-actions,
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
+
+.small-text {
+  color: #6b7280;
+  font-size: 0.9rem;
+}

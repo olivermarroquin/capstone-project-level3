@@ -7,9 +7,9 @@ export default function Header({ session }) {
   }
 
   return (
-    <header>
+    <header className="header">
+      {" "}
       <h1>CarHub</h1>
-
       <nav>
         <Link to="/">Home</Link>
         <Link to="/vehicles">Vehicles</Link>

@@ -7,7 +7,8 @@ export default function VehicleList({
   onToggleStatus,
 }) {
   return (
-    <div>
+    <div className="grid">
+      {" "}
       {vehicles.map((vehicle) => (
         <VehicleCard
           key={vehicle.id}

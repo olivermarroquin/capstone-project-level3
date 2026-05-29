@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <Header session={session} />
-      <main>
+      <main className="page">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/vehicles" element={<Vehicles />} />

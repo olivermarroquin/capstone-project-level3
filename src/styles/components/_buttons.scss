@@ -1,0 +1,16 @@
+button,
+.button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+button:hover,
+.button:hover {
+  opacity: 0.9;
+}

@@ -15,7 +15,7 @@ export default function VehicleCard({
   onToggleStatus,
 }) {
   return (
-    <div>
+    <div className="card">
       <img src={image_url} alt={`${year} ${make} ${model}`} width="300" />
 
       <h3>
@@ -30,7 +30,7 @@ export default function VehicleCard({
       {!isAdmin && <Link to={`/vehicles/${id}`}>View Details</Link>}
 
       {isAdmin && (
-        <div>
+        <div className="card-actions">
           <button onClick={() => onToggleStatus(id, status)}>
             Mark {status === "Available" ? "Sold" : "Available"}
           </button>
