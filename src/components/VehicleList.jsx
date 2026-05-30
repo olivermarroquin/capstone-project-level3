@@ -8,7 +8,6 @@ export default function VehicleList({
 }) {
   return (
     <div className="grid">
-      {" "}
       {vehicles.map((vehicle) => (
         <VehicleCard
           key={vehicle.id}

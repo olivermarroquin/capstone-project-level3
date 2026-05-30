@@ -54,6 +54,7 @@ function App() {
             path="/admin"
             element={session ? <Admin /> : <Navigate to="/login" />}
           />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </>
